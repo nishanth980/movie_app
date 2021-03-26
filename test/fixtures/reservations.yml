@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  seat: one
+  show_time: one
+  user: one
+  reserved: false
+
+two:
+  seat: two
+  show_time: two
+  user: two
+  reserved: false
