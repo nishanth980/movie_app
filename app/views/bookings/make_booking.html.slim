@@ -1,0 +1,4 @@
+.container
+  .row.mt-5
+    .col-12
+      p = "Greetings! Your Booking has been made for movie for #{@show_time.movie.name} in #{@show_time.screen.name} on #{@show_time.movie_date.date.strftime('%d-%m-%Y')} at #{@show_time.slot.time} and your seat numbers are #{@seat_numbers}"

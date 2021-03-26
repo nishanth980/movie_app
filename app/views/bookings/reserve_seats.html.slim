@@ -1,0 +1,21 @@
+
+.container.mt-5
+  = form_tag make_booking_bookings_path, method: :get do
+    = hidden_field_tag "show_time_id", @show_time.id
+    .row
+      - @screen_seats.each do |screen_seat|
+        .col-4.mb-4
+          label class="checkbox"
+            = label_tag "#{screen_seat.seat.number}, (#{screen_seat.price})"
+            = check_box_tag "seat_numbers[]", screen_seat.seat.id, false, set_available_class(screen_seat.seat.id)
+      = submit_tag "Book Now", class: 'book_tickets', disabled: true
+
+
+javascript:
+  $('.reserved').click(function (){
+    $(this).css('background-color', 'red')
+  })
+
+  $('.available').click(function () {
+    $('.book_tickets').removeAttr("disabled");
+  })

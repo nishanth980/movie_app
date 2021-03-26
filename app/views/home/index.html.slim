@@ -1,0 +1,26 @@
+.container.mt-5
+  .row
+    - @movies.each do |movie|
+      .col-4.mb-4
+        = form_tag reserve_seats_bookings_path, method: :get
+          .row.justify-content-center
+            = image_tag movie.image_url, size: "10x300"
+          .row.justify-content-center
+            = movie.name
+            = hidden_field_tag "movie_id[]", movie.id
+          .row.justify-content-center
+            = movie.description
+          .row
+            - movie.screens.group(:id).each do |screen|
+              .col-6
+                = radio_button_tag "screen_id", screen.id
+                | &nbsp;
+                = label_tag screen.name
+            .col-6
+              = select_tag "movie_date_id", options_for_select(movie.movie_dates.group(:id).collect { |movie_date| [movie_date.date.strftime("%d %m %y"), movie_date.id] })
+            .col-6
+              = select_tag "slot_id", options_for_select(movie.slots.group(:id).collect{|slot| [slot.time, slot.id]})
+          br
+          = submit_tag "Book Now"
+
+

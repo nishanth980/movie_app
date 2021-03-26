@@ -1,0 +1,11 @@
+.container.mt-5
+  .row
+    .col-12
+      p Dowload the reports here:
+      = form_tag reports_bookings_path, method: :get
+        = label_tag "booking_date", "Booking Date", class: 'col-left control-label'
+        | &nbsp;
+        = date_field_tag("booking_date", "", class: 'inline-block')
+        br
+        br
+        = submit_tag "Show Report", id: 'show_report'

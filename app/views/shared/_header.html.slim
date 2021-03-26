@@ -1,0 +1,10 @@
+nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  button.navbar-toggler aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarTogglerDemo03" data-toggle="collapse" type="button"
+    span.navbar-toggler-icon
+  a.navbar-brand.ml-13 href="/"  Home
+  #navbarTogglerDemo03.collapse.navbar-collapse.justify-content-center
+    span Welcome to our Movie Booking Application
+    - if current_user
+      span.user-display = "Welcome #{current_user.email}"
+      | &nbsp;
+      span = link_to "Sign Out", destroy_user_session_path
