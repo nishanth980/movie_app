@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
     @seat_numbers = params[:seat_numbers].join(",")
     params[:seat_numbers].each do |seat_number|
       seat = Seat.find(seat_number)
-      Reservation.create!(show_time_id: params[:show_time_id], seat_id: seat.id)
+      Reservation.create!(show_time_id: params[:show_time_id], seat_id: seat.id, user_id: current_user.id)
     end
   end
 
