@@ -24,6 +24,8 @@ gem 'bootstrap', '~> 5.0.0.beta2'
 gem "shrine", "~> 3.0"
 gem 'pry'
 gem 'rubocop'
+gem "aws-sdk-s3"
+
 
 
 # Use ActiveStorage variant
